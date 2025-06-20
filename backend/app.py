@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from scraper import scrape_data_gouv
 # Import DatasetDB and SessionLocal from your database module
-from backend.db import DatasetDB, SessionLocal
+from db import DatasetDB, SessionLocal
 
 app = Flask(__name__)
 CORS(app)  # Activation CORS

@@ -1,17 +1,18 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine, Column, String, Text
+from sqlalchemy.orm import sessionmaker, declarative_base
+import os
 
-# Connexion MySQL
-DB_USER = 'scraperuser'
-DB_PASSWORD = 'userpassword'
-DB_HOST = 'db'  # Nom du service dans docker-compose
-DB_PORT = '3306'
-DB_NAME = 'smartscraper'
+DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://scraperuser:userpassword@db:3306/smartscraper")
 
-DATABASE_URL = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
-
-# Créer l'engine
 engine = create_engine(DATABASE_URL, echo=True)
+SessionLocal = sessionmaker(bind=engine)
 
-# Créer la session
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+class DatasetDB(Base):
+    __tablename__ = 'datasets'
+
+    id = Column(String, primary_key=True)
+    title = Column(String(255), nullable=False)
+    description = Column(Text)
+    url = Column(String(255))
