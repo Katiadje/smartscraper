@@ -1,3 +1,4 @@
+
 services:
   # Service MySQL (existant)
   db:
@@ -41,9 +42,9 @@ services:
 
   # Service React (frontend)
   frontend:
-    build: ../frontend
+    build: ../frontend/frontend
     ports:
-      - "3000:3000"
+      - "3001:80"
     depends_on:
       - backend
 
