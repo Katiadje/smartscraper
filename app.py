@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from scraper import scrape_data_gouv
 # Import DatasetDB and SessionLocal from your database module
 from db import DatasetDB, SessionLocal
 
 app = Flask(__name__)
+CORS(app)  # Activation CORS
 
 datasets = []
 
@@ -68,4 +70,4 @@ def get_dataset(dataset_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
