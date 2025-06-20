@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from scraper import scrape_data_gouv
 
 app = Flask(__name__)
+CORS(app)  # Activation CORS
 
 datasets = []
 
@@ -17,7 +19,6 @@ def scrap():
     page_size = body.get('page_size', 20)
 
     scraped = scrape_data_gouv(page, page_size)
-    # Convertit en dict pour JSON
     datasets = [ds.to_dict() for ds in scraped]
 
     return jsonify({"message": f"{len(datasets)} datasets récupérés."})
