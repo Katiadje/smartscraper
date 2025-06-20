@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nom": "Dupont",
+    "prenom": "Alice",
+    "age":"20",
+    "fonction":"Etudiante"
+  },
+  {
+    "id": 2,
+    "nom": "Martin",
+    "prenom": "Jean",
+    "age":"20",
+    "fonction":"Etudiante"
+  },
+  {
+    "id": 3,
+    "nom": "Leroy",
+    "prenom": "Emma",
+    "age":"35",
+    "fonction":"Etudiante"
+  },
+  {
+    "id": 4,
+    "nom": "Bernard",
+    "prenom": "Lucas",
+    "age":"30",
+    "fonction":"Etudiante"
+  },
+  {
+    "id": 5,
+    "nom": "Moreau",
+    "prenom": "Sophie",
+    "age":"25",
+    "fonction":"Etudiante"
+  }
+]
