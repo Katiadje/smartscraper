@@ -26,8 +26,8 @@ class Dataset(Base):
             "url": self.url
         }
 
-# Configuration base de données
-DATABASE_URL = "mysql+pymysql://user:password@localhost:3306/nom_de_ta_base"
+# Configuration base de données selon ton docker-compose
+DATABASE_URL = "mysql+pymysql://scraperuser:userpassword@db:3306/smartscraper"
 
 engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(bind=engine)
