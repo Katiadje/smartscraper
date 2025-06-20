@@ -6,7 +6,6 @@ const Header = () => {
       <h1 style={styles.title}>SmartScraper</h1>
       <nav style={styles.nav}>
         <a href="/" style={styles.link}>Accueil</a>
-        <a href="/details" style={styles.link}> Details des Données</a>
       </nav>
     </header>
   );
