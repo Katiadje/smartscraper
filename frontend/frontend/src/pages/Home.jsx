@@ -32,20 +32,43 @@ const Home = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Liste des Datasets</h1>
+      <h1 style={{ textAlign: 'center' }}>Liste des Datasets</h1>
 
-      <input
-        type="text"
-        placeholder="Rechercher par titre"
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
-        style={{
-          marginBottom: '20px',
-          padding: '10px',
-          fontSize: '16px',
-          width: '300px'
-        }}
-      />
+     <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '20px',
+        alignItems: 'center'
+      }}>
+        <div style={{ position: 'relative' }}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/751/751463.png"
+            alt="loupe"
+            style={{
+              position: 'absolute',
+              left: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '20px',
+              height: '20px',
+              opacity: 0.6
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Rechercher par titre"
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            style={{
+              padding: '10px 10px 10px 35px',
+              fontSize: '16px',
+              width: '300px',
+              border: '2px solidrgb(25, 47, 71)',
+              borderRadius: '6px'
+            }}
+          />
+        </div>
+        </div>
 
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
@@ -59,7 +82,7 @@ const Home = () => {
           {filteredDatasets.map(ds => (
             <tr key={ds.id}>
               <td style={{ border: '1px solid #ddd', padding: '10px' }}>
-                <Link to={`/datasets/${ds.id}`}>{ds.title || "Sans titre"}</Link>
+                {ds.title?.slice(0, 100)}
               </td>
               <td style={{ border: '1px solid #ddd', padding: '10px' }}>
                 {ds.description?.slice(0, 100) || "Pas de description"}...

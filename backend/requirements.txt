@@ -1,0 +1,6 @@
+Flask
+requests
+SQLAlchemy
+flask-cors
+pymysql
+cryptography
