@@ -1,20 +1,29 @@
-from sqlalchemy import Column, String, Text
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy import create_engine, Column, String
+# from sqlalchemy.orm import declarative_base, sessionmaker
+# import os
 
-Base = declarative_base()
+# DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://scraperuser:userpassword@db:3306/smartscraper")
 
-class Dataset(Base):
-    __tablename__ = 'datasets'
+# engine = create_engine(DATABASE_URL, echo=True)
+# SessionLocal = sessionmaker(bind=engine)
 
-    id = Column(String, primary_key=True)          # L'id est une string (car souvent API renvoie un id textuel)
-    title = Column(String(255), nullable=False)
-    description = Column(Text)
-    url = Column(String(255))
+# Base = declarative_base()
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "description": self.description,
-            "url": self.url
-        }
+# class DatasetDB(Base):
+#     __tablename__ = 'datasets'
+
+#     id = Column(String(255), primary_key=True)
+#     title = Column(String(255))
+#     description = Column(String(1024))
+#     url = Column(String(255))
+
+#     def to_dict(self):
+#         return {
+#             "id": self.id,
+#             "title": self.title,
+#             "description": self.description,
+#             "url": self.url
+#         }
+
+# # Créer les tables à l'initialisation
+# Base.metadata.create_all(engine)
